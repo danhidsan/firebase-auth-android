@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "545950779844",
+    "firebase_url": "https://mylogin-1aa1b.firebaseio.com",
+    "project_id": "mylogin-1aa1b",
+    "storage_bucket": "mylogin-1aa1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545950779844:android:a7f5abf77b8bcd63",
+        "android_client_info": {
+          "package_name": "com.example.danielhidalgo.mylogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545950779844-15mmp2vsucr8dn2co0em7328p8tvsfgo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.danielhidalgo.mylogin",
+            "certificate_hash": "ba955a417539c126d0dc5ce0ac33f71f9be54f8b"
+          }
+        },
+        {
+          "client_id": "545950779844-ofdrcjj08n360d7rp8dmoaapich1sqq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_5rcJeKD3gN3EIyVD_OZBRGmYY3LyNks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545950779844-ofdrcjj08n360d7rp8dmoaapich1sqq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

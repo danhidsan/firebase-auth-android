@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.danielhidalgo.mylogin.Activities.SignInActivity">
+
+    <EditText
+        android:id="@+id/signin_password"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/signin_email"
+        android:layout_alignStart="@+id/signin_email"
+        android:layout_alignEnd="@+id/signin_email" />
+
+    <EditText
+        android:id="@+id/signin_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:layout_marginTop="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="35dp" />
+
+    <EditText
+        android:id="@+id/signin_password_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Repeat Password"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/signin_password"
+        android:layout_alignStart="@+id/signin_password"
+        android:layout_alignEnd="@+id/signin_password" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="Cancel"
+        android:textColor="@color/colorAccent"
+        android:layout_marginEnd="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/button_register"
+        android:background="@color/colorWhite"/>
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="@color/colorWhite"
+        android:layout_alignBaseline="@+id/button_cancel"
+        android:layout_alignBottom="@+id/button_cancel"
+        android:layout_alignEnd="@+id/signin_password_match"
+        android:background="@color/colorAccent"/>
+
+    <ImageView
+        android:id="@+id/imageViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/email"
+        android:layout_above="@+id/signin_password"
+        android:layout_alignStart="@+id/button_cancel" />
+
+    <ImageView
+        android:id="@+id/imageViewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/signin_password"
+        android:layout_alignEnd="@+id/imageViewEmail"
+        app:srcCompat="@mipmap/pass" />
+
+    <ImageView
+        android:id="@+id/imageViewPasswordMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/signin_password_match"
+        android:layout_alignEnd="@+id/imageViewPassword"
+        app:srcCompat="@mipmap/pass" />
+</RelativeLayout>
