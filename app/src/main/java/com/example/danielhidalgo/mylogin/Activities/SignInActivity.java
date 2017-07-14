@@ -12,11 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.danielhidalgo.mylogin.Domain.User;
 import com.example.danielhidalgo.mylogin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,6 +35,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     //Firebase
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -41,6 +46,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         bindUI();
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         buttonRegister.setOnClickListener(this);
         buttonCancel.setOnClickListener(this);
@@ -107,6 +113,24 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         return password.equals(passwordMatch);
     }
 
+    private String getUserName(String email){
+        if(email.contains("@")){
+            return email.split("@")[0];
+        }else{
+            return email;
+        }
+    }
+
+    private void writeNewUser(FirebaseUser user){
+        String username = getUserName(user.getEmail());
+
+        User userToSave = new User(username, user.getEmail());
+
+        mDatabase.child("users").child(user.getUid()).setValue(userToSave);
+
+
+    }
+
     private void signIn(String email, String password){
 
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -116,6 +140,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         if(task.isSuccessful()){
                             Log.d("EmailPassword", "createUserWithEmail: success");
                             Toast.makeText(SignInActivity.this, "Success Operation", Toast.LENGTH_LONG).show();
+                            writeNewUser(task.getResult().getUser());
                             goToLogIn();
                         }else{
                             Log.w("EmailPassword", "createUserWithEmail: failure", task.getException());
