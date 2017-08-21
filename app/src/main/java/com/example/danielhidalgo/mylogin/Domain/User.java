@@ -11,13 +11,15 @@ public class User {
 
     private String username;
     private String email;
+    private String authId;
 
     public User(){
     }
 
-    public User(String username, String email){
+    public User(String username, String email, String authId){
         this.username = username;
         this.email = email;
+        this.authId = authId;
     }
 
     public String getUsername() {
@@ -34,5 +36,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(String authId) {
+        this.authId = authId;
     }
 }

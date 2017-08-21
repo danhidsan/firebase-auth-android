@@ -74,6 +74,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 if(validate(email,password,passwordMatch)){
                     signIn(email, password);
                 }
+                break;
 
 
         }
@@ -124,7 +125,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void writeNewUser(FirebaseUser user){
         String username = getUserName(user.getEmail());
 
-        User userToSave = new User(username, user.getEmail());
+        User userToSave = new User(username, user.getEmail(), user.getUid());
 
         mDatabase.child("users").child(user.getUid()).setValue(userToSave);
 
