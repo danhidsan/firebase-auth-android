@@ -128,6 +128,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         User userToSave = new User(username, user.getEmail(), user.getUid());
 
         mDatabase.child("users").child(user.getUid()).setValue(userToSave);
+        mDatabase.child("auths").setValue(user);
 
 
     }
